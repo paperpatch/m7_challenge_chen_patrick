@@ -18,13 +18,13 @@ public class ArtistController {
     @Autowired
     ServiceLayer service;
 
-    @GetMapping("/artist")
+    @GetMapping("/artists")
     @ResponseStatus(HttpStatus.OK)
     public List<Artist> getAllArtists() {
         return service.getAllArtists();
     }
 
-    @GetMapping("/artist/{id}")
+    @GetMapping("/artists/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Optional<Artist> getArtistById(@PathVariable int id) {
         if (service.getArtistById(id).orElse(null) == null) {
@@ -33,13 +33,13 @@ public class ArtistController {
         return service.getArtistById(id);
     }
 
-    @PostMapping("/artist")
+    @PostMapping("/artists")
     @ResponseStatus(HttpStatus.CREATED)
     public Artist createArtist(@Valid @RequestBody Artist artist) {
         return service.createArtist(artist);
     }
 
-    @PutMapping("/artist/{id}")
+    @PutMapping("/artists/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateArtist(@PathVariable int id, @Valid @RequestBody Artist artist) {
         if (id != artist.getArtistId()) {
@@ -48,7 +48,7 @@ public class ArtistController {
         service.updateArtist(artist);
     }
 
-    @DeleteMapping("/artist/{id}")
+    @DeleteMapping("/artists/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteArtist(@PathVariable int id) {
         if (service.getArtistById(id).orElse(null) == null) {

@@ -17,13 +17,13 @@ public class AlbumController {
     @Autowired
     ServiceLayer service;
 
-    @GetMapping("/album")
+    @GetMapping("/albums")
     @ResponseStatus(HttpStatus.OK)
     public List<Album> getAllAlbums() {
         return service.getAllAlbums();
     }
 
-    @GetMapping("/album/{id}")
+    @GetMapping("/albums/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Optional<Album> getAlbumById(@PathVariable int id) {
         if (service.getAlbumById(id).orElse(null) == null) {
@@ -32,13 +32,13 @@ public class AlbumController {
         return service.getAlbumById(id);
     }
 
-    @PostMapping("/album")
+    @PostMapping("/albums")
     @ResponseStatus(HttpStatus.CREATED)
     public Album createAlbum(@Valid @RequestBody Album album) {
         return service.createAlbum(album);
     }
 
-    @PutMapping("/album/{id}")
+    @PutMapping("/albums/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateAlbum(@PathVariable int id, @Valid @RequestBody Album album) {
         if (id != album.getAlbumId()) {
@@ -47,7 +47,7 @@ public class AlbumController {
         service.updateAlbum(album);
     }
 
-    @DeleteMapping("/album/{id}")
+    @DeleteMapping("/albums/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteAlbum(@PathVariable int id) {
         if (service.getAlbumById(id).orElse(null) == null) {

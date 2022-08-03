@@ -17,13 +17,13 @@ public class LabelController {
     @Autowired
     ServiceLayer service;
 
-    @GetMapping("/label")
+    @GetMapping("/labels")
     @ResponseStatus(HttpStatus.OK)
     public List<Label> getAllLabels() {
         return service.getAllLabels();
     }
 
-    @GetMapping("/label/{id}")
+    @GetMapping("/labels/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Optional<Label> getLabelById(@PathVariable int id) {
         if (service.getLabelById(id).orElse(null) == null) {
@@ -32,13 +32,13 @@ public class LabelController {
         return service.getLabelById(id);
     }
 
-    @PostMapping("/label")
+    @PostMapping("/labels")
     @ResponseStatus(HttpStatus.CREATED)
     public Label createLabel(@Valid @RequestBody Label label) {
         return service.createLabel(label);
     }
 
-    @PutMapping("/label/{id}")
+    @PutMapping("/labels/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateLabel(@PathVariable int id, @Valid @RequestBody Label label) {
         if (id != label.getLabelId()) {
@@ -47,7 +47,7 @@ public class LabelController {
         service.updateLabel(label);
     }
 
-    @DeleteMapping("/label/{id}")
+    @DeleteMapping("/labels/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteLabel(@PathVariable int id) {
         if (service.getLabelById(id).orElse(null) == null) {

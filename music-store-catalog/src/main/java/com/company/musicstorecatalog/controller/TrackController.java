@@ -17,13 +17,13 @@ public class TrackController {
     @Autowired
     ServiceLayer serviceLayer;
 
-    @GetMapping("/track")
+    @GetMapping("/tracks")
     @ResponseStatus(HttpStatus.OK)
     public List<Track> getAllTracks() {
         return serviceLayer.getAllTracks();
     }
 
-    @GetMapping("/track/{id}")
+    @GetMapping("/tracks/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Optional<Track> getTrackById(@PathVariable int id) {
         if (serviceLayer.getTrackById(id).orElse(null) == null) {
@@ -32,13 +32,13 @@ public class TrackController {
         return serviceLayer.getTrackById(id);
     }
 
-    @PostMapping("/track")
+    @PostMapping("/tracks")
     @ResponseStatus(HttpStatus.CREATED)
     public Track createTrack(@Valid @RequestBody Track track) {
         return serviceLayer.createTrack(track);
     }
 
-    @PutMapping("/track/{id}")
+    @PutMapping("/tracks/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateTrack(@PathVariable int id, @Valid @RequestBody Track track) {
         if (id != track.getTrackId()) {
@@ -47,7 +47,7 @@ public class TrackController {
         serviceLayer.updateTrack(track);
     }
 
-    @DeleteMapping("/track/{id}")
+    @DeleteMapping("/tracks/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteTrack(@PathVariable int id) {
         if (serviceLayer.getTrackById(id).orElse(null) == null) {
