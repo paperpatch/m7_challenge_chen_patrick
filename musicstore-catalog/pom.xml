@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.company</groupId>
-	<artifactId>musicstore-catalog</artifactId>
+	<artifactId>music-store-catalog</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>musicstore-catalog</name>
+	<name>music-store-catalog</name>
 	<description>music store catalog microservice</description>
 	<properties>
 		<java.version>1.8</java.version>
