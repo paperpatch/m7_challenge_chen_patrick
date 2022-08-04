@@ -25,7 +25,7 @@ public class TrackRecommendationController {
     @GetMapping("/trackRecommendation/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Optional<TrackRecommendation> getTrackRecommendationById(@PathVariable int id) {
-        if (service.getTrackRecommendationById(id) == null) {
+        if (service.getTrackRecommendationById(id).orElse(null) == null) {
             throw new NotFoundException("Track recommendation with that ID does not exists.");
         }
         return service.getTrackRecommendationById(id);

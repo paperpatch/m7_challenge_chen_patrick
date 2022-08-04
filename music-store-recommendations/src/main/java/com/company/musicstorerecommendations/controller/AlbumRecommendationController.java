@@ -25,7 +25,7 @@ public class AlbumRecommendationController {
     @GetMapping("/albumRecommendation/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Optional<AlbumRecommendation> getAlbumRecommendationById(@PathVariable int id) {
-        if (service.getAlbumRecommendationById(id) == null) {
+        if (service.getAlbumRecommendationById(id).orElse(null) == null) {
             throw new NotFoundException("Album recommendation with that ID does not exists.");
         }
         return service.getAlbumRecommendationById(id);

@@ -25,7 +25,7 @@ public class LabelRecommendationController {
     @GetMapping("/labelRecommendation/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Optional<LabelRecommendation> getLabelRecommendationById(@PathVariable int id) {
-        if (service.getLabelRecommendationById(id) == null) {
+        if (service.getLabelRecommendationById(id).orElse(null) == null) {
             throw new NotFoundException("Label recommendation with that ID does not exists.");
         }
         return service.getLabelRecommendationById(id);
