@@ -49,7 +49,7 @@ public class TrackRecommendationController {
     @DeleteMapping("/trackRecommendation/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteTrackRecommendation(@PathVariable int id) {
-        if (service.getTrackRecommendationById(id) == null) {
+        if (service.getTrackRecommendationById(id).orElse(null) == null) {
             throw new NotFoundException("Track recommendation with that ID does not exists.");
         }
         service.deleteTrackRecommendation(id);

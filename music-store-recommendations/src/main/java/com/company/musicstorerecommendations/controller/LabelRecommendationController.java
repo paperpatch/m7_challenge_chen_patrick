@@ -49,7 +49,7 @@ public class LabelRecommendationController {
     @DeleteMapping("/labelRecommendation/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteLabelRecommendation(@PathVariable int id) {
-        if (service.getLabelRecommendationById(id) == null) {
+        if (service.getLabelRecommendationById(id).orElse(null) == null) {
             throw new NotFoundException("Label recommendation with that ID does not exists.");
         }
         service.deleteLabelRecommendation(id);

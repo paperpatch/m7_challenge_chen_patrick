@@ -49,7 +49,7 @@ public class ArtistRecommendationController {
     @DeleteMapping("/artistRecommendation/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteArtistRecommendation(@PathVariable int id) {
-        if (service.getArtistRecommendationById(id) == null) {
+        if (service.getArtistRecommendationById(id).orElse(null) == null) {
             throw new NotFoundException("Artist recommendation with that ID does not exists.");
         }
         service.deleteArtistRecommendation(id);
