@@ -10,6 +10,7 @@ Please note that this is a backend activity.
 
 * [Setup](#setup)
 * [Content](#content)
+* [Server API Routes](#serverapiroutes)
 * [Contributing](#contributing)
 * [License](#license)
 
@@ -162,7 +163,7 @@ This repository contains the following Heroku servers:
 | PUT    | /tracks/{id}      |
 | DELETE | /tracks/{id}      |
 
-### MUSIC STORE CATALOG ROUTES:
+### MUSIC STORE RECOMMENDATIONS ROUTES:
 
 | Method | Routes                     |
 |--------|----------------------------|
