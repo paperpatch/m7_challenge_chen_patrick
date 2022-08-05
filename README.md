@@ -10,7 +10,7 @@ Please note that this is a backend activity.
 
 * [Setup](#setup)
 * [Content](#content)
-* [Server API Routes](#serverapiroutes)
+* [Server API Routes](#server-api-routes)
 * [Contributing](#contributing)
 * [License](#license)
 
